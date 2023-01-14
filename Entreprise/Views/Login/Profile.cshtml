@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Memeber";
+} 
+@model User
+<main id="main">
+    <section id="breadcrumbs" style="background: white" class="breadcrumbs">
+        <div class="container">
+        </div>
+    </section>
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="100">
+
+                    <img src="~/img/PDP/@(Model.Id).jpg" height="500" width="400" style="object-fit: cover;box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;">
+
+                </div>
+
+                <div class="col-lg-8" data-aos="fade-right" data-aos-delay="100">
+
+
+                    <div class="portfolio-info" style="box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;">
+                        <h3>Profil</h3>
+                        <ul>
+                            <li><strong> Firstname </strong>:   @Model.Firstname  </li>
+                            <li><strong> Lastname</strong>:    @Model.Lastname  </li>
+                            <li><strong>Email </strong>:    @Model.Email   </li>
+                            <li><strong> Phone Number  </strong>:   @Model.Phone_Number </li>
+                            <li><strong>Job </strong>:  @Model.Function  </li>
+
+                        </ul>
+
+                        @*    <div class="row">
+                        <div class="col">
+                        <input type="submit" class="btn btn-warning" value="Edit Product">
+                        </div>
+                        <div class="col">
+                        <input type="submit" class="btn btn-outline-danger" value="Delete Product">
+                        </div>  *@
+                    </div>
+                </div>
+
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+
+        </div>
+
+        </div>
+    </section>
+
+</main>

@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Memeber";
+}
+@model Product
+<main id="main">
+    <section id="breadcrumbs" style="background: white" class="breadcrumbs">
+        <div class="container">
+        </div>
+    </section>
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="100">
+
+            
+                    <img src="~/img/portfolio/portfolio-@(Model.Id).jpg" class="img-fluid" alt="" height="500" width="400" style="object-fit: cover;box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;">
+
+                </div>
+
+                <div class="col-lg-8" data-aos="fade-right" data-aos-delay="100">
+
+
+                    <div class="portfolio-info" style="box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;">
+                        <h3>Profil</h3>
+                        <ul>
+                            <li><strong> ID</strong>: @Model.Id  </li>
+                            <li><strong> Name </strong>:  @Model.Name  </li>
+                            <li><strong> Reference</strong>:   @Model.Reference  </li>
+                            <li><strong> Description</strong>: @Model.Description  </li>
+                            <li><strong> Sold Price </strong>:    @Model.Sold_Price   </li>
+                            <li><strong> Bought Price  </strong>:   @Model.Bought_Price </li>
+                            <li><strong> Sold</strong>: @Model.Sold </li>
+                            <li><strong> Left</strong>: @Model.Left  </li>
+                           
+                            <li><strong> Vendor</strong>:@if(@Model.Vendor!=null)
+
+                                    @Html.ActionLink( Model.Vendor.Name, "VendorProducts", "Stock",new {id =Model.Vendor.Id})
+
+                                </li>
+
+                            <li><strong> Stock</strong>:@if (@Model.Stock != null)
+
+                                    @Html.ActionLink( Model.Stock.Name, "AllProduct", "Stock",new {id =Model.Stock.Id})
+
+                                </li>
+                                
+                            <li><strong> Category</strong>:@if (@Model.Category != null)
+                                    @Html.ActionLink(Model.Category.Name, "CategoryProducts", "Stock",new {id =Model.Category.Id})
+                                 </li>
+                        </ul>
+                        @if (ViewData["role"].Equals("CEO"))
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    @Html.ActionLink("Edit", "EditProduct", "Stock",new {id = Model.Id },new {@class="btn btn-warning"})
+
+                                </div>
+                                <div class="col">
+                                    @Html.ActionLink("Delete", "Delete", "Stock",new {id = Model.Id},new {@class="btn btn-outline-danger"})
+
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        </div>
+    </section>
+
+</main>

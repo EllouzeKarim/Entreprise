@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Category";
+}
+@model List<Category>
+
+<section class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <section id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2 style="font-size: xx-large;color:black">Category</h2>
+
+                    @if (ViewData["role"].Equals("CEO"))
+                    {
+                        <a>
+                            @Html.ActionLink("Add Category", "AddCategory", "Stock",null,new {@class="btn btn-warning"})
+                        </a>
+                    }
+                </div>
+
+                @foreach (Category c in @Model)
+                {
+
+                            <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="70">
+                                <h4>@Html.ActionLink(c.Name, "CategoryProducts", "Stock",new {id =c.Id })</h4>
+                            </div>
+                            <br />
+                           
+                    @if (ViewData["role"].Equals("CEO"))
+                    {
+                        <div class="row">
+                            <div class="col">
+                                @Html.ActionLink("Edit", "EditCategory", "Stock",new {id = @c.Id },new {@class="btn btn-warning"})
+
+                            </div>
+                            <div class="col">
+                                @Html.ActionLink("Delete", "DeleteCategory", "Stock",new {id = @c.Id},new {@class="btn btn-outline-danger"})
+
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <br />
+                }
+
+            </div>
+        </section>
+
+    </div>
+</section>

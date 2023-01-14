@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "All Team";
+    Random rnd = new Random();
+
+}
+@model List<User>
+<section class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+        <section id="team" class="team">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2 style="font-size: xx-large;color:black">Team</h2>
+                    @if (ViewData["role"].Equals("CEO"))
+                        {
+                    <a>
+                            @Html.ActionLink("Add Member", "AddMember", "Teams",null,new {@class="btn btn-warning"})
+                    </a>   
+
+                    }
+                </div>
+
+                <div class="row">
+
+                    @foreach (var u in @Model)
+                    {
+
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                            <div class="member" data-aos="fade-up" data-aos-delay="25">
+                                <div class="member-img">
+                                    <img src="~/img/PDP/@(u.Id).jpg" class="img-fluid" alt="">
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                             <div class="member-info">
+                                    <a href="@Url.Action("Member","Teams",new{id=u.Id})">
+                                        <h4>@u.Firstname @u.Lastname</h4>
+                                </a>
+                                    <span>@u.Function</span>
+                                    </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+</section>

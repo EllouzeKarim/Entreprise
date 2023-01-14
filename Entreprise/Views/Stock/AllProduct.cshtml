@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Products";
+ }
+ @model List<Product>
+
+
+
+
+<section class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <section id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                 
+                        <div > <h2 style="font-size: xx-large;color:black">Stock</h2> </div>
+                        <div >
+                            @if (ViewData["role"].Equals("CEO"))
+                            {
+                            <div style="  float: right; ">
+                                @Html.ActionLink("Add Product", "CreateProduct", "Stock",null ,new{@class="btn btn-warning" })
+                                </div>
+                            }
+                        </div>
+                    </div>
+              
+                   
+                </div>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-app">App</li>
+                            <li data-filter=".filter-card">Card</li>
+                            <li data-filter=".filter-web">Web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          @foreach (Product p in @Model)
+            {
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <a href="@Url.Action("Product", "Stock")">
+                                <img src="~/img/products/@(p.Id).jpg" class="img-fluid" alt="">
+                            </a>
+                            <div class="portfolio-info">
+                                <h4>@p.Name</h4>
+                                <p>@p.Description</p>
+                                <div class="portfolio-links">
+                                    <a href="~/img/products/@(p.Id).jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                    <a href="@Url.Action("Details", "Stock",new {id = @p.Id})" title="More Details"><i class="bx bx-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            }
+                    
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+@*
+<section class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+         <div class="section-title">
+                    <h2 style="font-size: xx-large;color:black">@ViewData["Dep"] Product </h2>
+                 
+                        @if (ViewData["role"].Equals("CEO"))
+                         {
+                             <a>
+                                @Html.ActionLink("Add Product", "CreateProduct", "Stock",null,new {@class="btn btn-warning"})
+                            </a> 
+                        }
+         </div>
+       
+         <div class="row">
+
+            @foreach (Product p in @Model)
+            {
+
+                         <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                
+                                <div class="product" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="member-img"> 
+                                           <img src="~/img/products/@(p.Id).jpg" class="img-fluid" alt="">
+                                    
+                                    </div>
+                                  
+                                
+                                <div class="product-info">
+                                     <a href="~/img/portfolio/portfolio-@(p.Id).jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@p.Name"><i class="bx bx-plus"></i></a>
+                                     <a href="@Url.Action("Details", "Stock",new {id = @p.Id})">
+                                     <h4>@p.Name</h4>
+                                     </a>
+                                </div>
+
+                                </div>
+                        </div>      
+            }   
+                
+        </div>
+
+        
+    </div>
+</section>*@

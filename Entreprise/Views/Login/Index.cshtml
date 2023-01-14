@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+ @model User
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div style="width: 500px;background: gray ; opacity:0.92; border-radius: 25px;">
+
+
+                <h1 class="logo me-auto me-lg-0"> ENTREPRISE <span>.</span></h1>
+                <h2 class="logo me-auto me-lg-0"> LOGIN </h2>
+
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                    <div class="row" style="padding-top: 50px">
+                        <div class="form-outline mb-4">
+                            <td> @Html.TextBoxFor( m => m.Email,new{ @class="form-control form-control-lg"  , @placeholder="Email Address" })</td>
+                            
+                            @*<input type="email" id="form2Example18" class="form-control form-control-lg"
+                        placeholder="Email address" />*@
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px">
+                        <div class="form-outline mb-4">
+
+                            <td>@Html.TextBoxFor(m => m.Password,new{ @class="form-control form-control-lg"  , @placeholder="Password" ,@type="password" })</td>
+                           @* <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="Password" />
+                        *@
+                        </div>
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                 <input  class="btn btn-warning btn-lg btn-block" type="submit" value="LOGIN"  >
+                    </div>
+                    @if(ViewData["error"]!=null){
+
+                        <p class="alert alert-danger"> @ViewData["error"]  </p>
+                    }
+                    <p style="color: black"> Forgot password or don't have an account?  </p>
+                    <p style="color: black">Please contact the administrator</p>
+
+                   
+             }
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1 class="logo me-auto me-lg-0">Welcome to your panel<span>.</span></a></h1>
+                <h1 class ="logo me-auto me-lg-0" style="font-size: large">Have A Great Day &nbsp; <span><i class='bx bx-happy-beaming' ></i></span></h1>
+            </div>
+        </div>
+
+        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <i class="ri-task-line"></i>
+                    <h3>@Html.ActionLink("Tasks", "Index", "Tasks")</h3>
+                </div>
+            </div> <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <i class="ri-team-line"></i>
+                    <h3><a href="Department.html">@Html.ActionLink("Team", "Index", "Teams")</a></h3>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <i class="ri-store-2-line"></i>
+                    <h3><a href="">@Html.ActionLink("Stock", "Index", "Stock")</a></h3>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <i class="ri-profile-line"></i>
+                    <h3><a href="">@Html.ActionLink("Profile", "Profile", "Login")</a></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

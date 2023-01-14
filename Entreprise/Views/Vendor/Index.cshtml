@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Vendor";
+}
+@model List<Vendor>
+
+<section class="d-flex align-items-center justify-content-center">
+
+    <div class="container" data-aos="fade-up">
+
+
+        <section id="team" class="team">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2 style="font-size: xx-large;color:black">Vendors</h2>
+                </div>
+                 
+                    @if (ViewData["role"].Equals("CEO"))
+                         {
+                             <a>
+                                @Html.ActionLink("Add Vendor", "CreateVendor", "Vendor",null,new {@class="btn btn-warning"})
+                            </a> 
+                        }
+                <br /><br />
+
+                <div class="row">
+                    @foreach(Vendor v in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon-box">
+                                <div class="icon"><i class="bi bi-truck"></i></div>
+                                <h4><a href="@Url.Action("VendorProducts", "Vendor",new {id = @v.Id})">@v.Name</a></h4>
+                                <p>@v.Email</p>
+                                <p>@v.Phone_Number</p>
+                            </div>
+                            <div>
+                            @if (ViewData["role"].Equals("CEO"))
+                            {
+                                    <div class="row">
+                                        <div class="col">
+                                            @Html.ActionLink("Edit", "EditVendor", "Vendor",new {id = @v.Id },new {@class="btn btn-warning"})
+
+                                        </div>
+                                        <div class="col">
+                                            @Html.ActionLink("Delete", "DeleteVendor", "Vendor",new {id = @v.Id},new {@class="btn btn-outline-danger"})
+
+                                        </div>
+                                   </div>
+                            }
+                            </div>
+                        </div>
+                    }
+
+                   
+
+
+                </div>
+            </div>
+
+
+        </section> 
+
+
+    </div>
+</section>

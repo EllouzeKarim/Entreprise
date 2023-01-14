@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>@ViewData["Title"] </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+ 
+    <header id="header" style="background: black;opacity: 0.8" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-lg-between">
+
+            <h1 class="logo me-auto me-lg-0"><a href="index.html">Entreprise<span>.</span></a></h1>
+    
+            @if ((string?)ViewData["Title"] != "Login" && (string?)ViewData["Title"] != "Home")
+            {
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li> @Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="nav-link scrollto"> @Html.ActionLink("Tasks", "Index", "Tasks")</li>
+                        <li class="nav-link scrollto">@Html.ActionLink("Team", "Index", "Teams")</li>
+                        <li class="nav-link scrollto">@Html.ActionLink("Stock", "Index", "Stock")</li>
+                        <li class="nav-link scrollto"> @Html.ActionLink("Vendors", "Index", "Vendor")</li>
+                        <li class="nav-link scrollto"> @Html.ActionLink("Profile", "Profile", "Login")</li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+}
+            @if (ViewData["logged"]=="true"){
+                <div class="get-started-btn scrollto">@Html.ActionLink("Log Out", "Logout", "Login")</div>
+            }
+        </div>
+    </header>
+  
+    @RenderBody()
+
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Styles", required: false)
+</body>
+
+</html>
